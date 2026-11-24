@@ -4,6 +4,14 @@ A **new, independent 2026 rebuild** of a task-management MVP. This repository do
 
 **Stack:** React 19, TypeScript (strict), Vite, FastAPI, SQLAlchemy, PyJWT, SQLite for local development and tests.
 
+## Public interactive demo
+
+**[Open SprintBoard live](https://sprintboard-live-olabs123.onrender.com)** · [Live smoke test](https://github.com/olabs123-hue/SprintBoard/actions/runs/45404921732)
+
+The public static site runs the real React/TypeScript dashboard against a **browser-local demo adapter**, using seeded sample tasks stored in `localStorage`. Visitors can create, move, delete, search and filter tasks, and the four KPIs update accordingly. **No JWT account, FastAPI service, PostgreSQL database, multi-user session or server-side storage is connected to this hosted demo.** Demo tasks are browser-local and can be reset.
+
+The real FastAPI backend is supplied separately in `backend/` for local development and automated tests. This new independent build should not be represented as previously deployed Chrisdeb work.
+
 ## Features
 - Registration, login, short-lived signed JWTs and private user workspaces.
 - Kanban board: **To do / In progress / Done**, with three task priority levels.
