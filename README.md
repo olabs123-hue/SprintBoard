@@ -36,10 +36,20 @@ npm run dev
 ```
 Browse http://localhost:5173. Development proxy forwards `/api` to the backend.
 
+## Verified engineering evidence
+
+The [successful GitHub Actions run](https://github.com/olabs123-hue/SprintBoard/actions/runs/45405389149) checks three independent jobs:
+
+- **15 passing FastAPI backend tests**, including user ownership, JWT authentication, CRUD, search/filtering and task-state metrics.
+- **4 passing Chromium Playwright end-to-end tests**, covering creating, moving, deleting and filtering tasks, KPI updates, persistence after page reload, reset behavior and mobile layout.
+- **React production build, strict TypeScript compilation and ESLint all passed**.
+
+This is evidence from the **independent SprintBoard rebuild** in this repository. The public Render deployment is a browser-local demo; backend tests run separately against the FastAPI service.
+
 ## Tests and build
 ```bash
 PYTHONPATH=backend python -m pytest -q backend/tests
-cd frontend && npm install && npm run build && npm run lint
+cd frontend && npm install && npm run build && npm run lint && npx playwright install chromium && npm run test:e2e
 ```
 GitHub Actions runs the checks after each commit. Do not interpret source-file counts as historical Chrisdeb delivery metrics.
 
